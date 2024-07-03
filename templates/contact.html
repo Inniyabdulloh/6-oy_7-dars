@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% block content %}
+    <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-6 col-12 mx-auto">
+            <form action="{% url 'main:contact' %}" class="custom-form contact-form" role="form" method="post">
+                <h2 class="hero-title text-center mb-4 pb-2">Aloqa Formasi</h2>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-floating">
+                            <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
+
+                            <label for="floatingInput">Ism Familiya</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-floating mb-4 p-0">
+                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email manzil" required="">
+
+                            <label for="email">Email manzil</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" id="message" name="message" placeholder="Message"></textarea>
+
+                            <label for="floatingTextarea">Xabar</label>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-10 mx-auto">
+                        <button type="submit" class="form-control">Jo'natish</button>
+                    </div>
+                </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+{% endblock %}
+

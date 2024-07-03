@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+
+
+{% block content %}
+    <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+<div class="container">
+    <div class="row">
+            <div class="col-lg-5 col-12 mx-auto">
+                <form class="custom-form login-form" role="form" method="post">
+                    <h2 class="hero-title text-center mb-4 pb-2">Login Form</h2>
+                    {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <h3 class="{{ message.tags }} bg-danger">{{ message }}</h3>
+                        {% endfor %}
+                    {% endif %}
+                    <div class="form-floating mb-4 p-0">
+                        <input type="text" name="username" id="email" class="form-control" placeholder="Username" required="">
+
+                        <label for="email">Username</label>
+                    </div>
+
+                    <div class="form-floating p-0">
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
+
+                        <label for="password">Password</label>
+                    </div>
+
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Menga xabar ber
+                        </label>
+                    </div>
+
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-5 col-12">
+                            <button type="submit" class="form-control">Login</button>
+                        </div>
+
+                        <div class="col-lg-5 col-12">
+                            <a href="{% url 'main:register' %}" class="btn custom-btn custom-border-btn">Register</a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
